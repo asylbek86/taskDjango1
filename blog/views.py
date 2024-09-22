@@ -14,3 +14,8 @@ def hello_world_view(request):
 def post_view(request):
     post = models.Post_club.objects.all()
     return render(request, 'index.html', {'post': post})
+
+
+def about_view(request):
+
+    return render(request, 'about.html', )

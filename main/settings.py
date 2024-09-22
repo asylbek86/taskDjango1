@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from decouple import config
 
 from django.conf.global_settings import STATICFILES_DIRS
 
@@ -7,14 +8,11 @@ from django.conf.global_settings import STATICFILES_DIRS
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w7so4$x+z+4er-o&%0gvq8s(gy17v7&*pl&j+8mipy9ihtfm1d'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = []
 
